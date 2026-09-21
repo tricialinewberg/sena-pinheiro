@@ -1,1 +1,354 @@
+/* ==========================================================
+   Sena Pinheiro | Elétrica e Climatização
+   Mobile-first, responsive, accessible stylesheet
+   ========================================================== */
 
+:root {
+  --gold: #B8860B;
+  --gold-light: #d4a520;
+  --ink: #1A1D20;
+  --ink-soft: #24282c;
+  --card: #2a2e33;
+  --off-white: #E5E9F0;
+  --gray: #9aa0ab;
+  --gray-dim: #6b7280;
+
+  --font-display: "Montserrat", sans-serif;
+  --font-body: "Barlow", sans-serif;
+
+  --container-w: 1200px;
+  --radius: 10px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+ul { list-style: none; margin: 0; padding: 0; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.2; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---------- Accessibility ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 12px 20px;
+  z-index: 1000;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+section { padding: 56px 0; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn-whatsapp {
+  background: var(--gold);
+  color: var(--ink);
+}
+.btn-whatsapp:hover,
+.btn-whatsapp:focus-visible {
+  background: var(--gold-light);
+}
+.btn-whatsapp:active { transform: scale(0.98); }
+.btn-large { padding: 15px 28px; font-size: 16px; }
+.btn-compact { padding: 10px 16px; font-size: 14px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26, 29, 32, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+.header-logo-img { height: 32px; width: auto; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 48px 0 40px; text-align: center; }
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.hero-logo { width: 100%; max-width: 420px; height: auto; }
+
+/* ---------- Credentials ---------- */
+.credentials { padding: 0 0 40px; }
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.credential-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--ink-soft);
+  border: 1px solid rgba(184, 134, 11, 0.25);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.credential-icon { width: 26px; height: 26px; flex-shrink: 0; color: var(--gold); }
+.credential-number { font-family: var(--font-display); font-weight: 700; font-size: 18px; margin: 0; }
+.credential-label { color: var(--gray); font-size: 14px; margin: 0; }
+
+/* ---------- About ---------- */
+.about { background: var(--ink-soft); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.about-photo {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  border: 2px solid var(--gold);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+.about-text h2 { font-size: 26px; margin-bottom: 18px; }
+.about-text p { color: var(--off-white); }
+.about-text strong { color: var(--gold-light); }
+.formacoes-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--gray);
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.formacoes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.formacoes-list li {
+  background: rgba(184, 134, 11, 0.12);
+  border: 1px solid rgba(184, 134, 11, 0.4);
+  color: var(--gold-light);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+/* ---------- Slogan destaque ---------- */
+.slogan-destaque {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--off-white);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* ---------- Services ---------- */
+.services-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+.services-heading h2 { font-size: 26px; }
+.services-heading p { color: var(--gray); font-size: 14px; }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.service-card {
+  background: var(--ink-soft);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.service-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 9px;
+  margin-bottom: 16px;
+}
+.service-card h3 { font-size: 17px; margin-bottom: 10px; }
+.service-card p { color: var(--gray); font-size: 14px; }
+
+/* ---------- Why choose ---------- */
+.why { background: var(--ink-soft); }
+.why h2 {
+  font-size: 24px;
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.why-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.why-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.why-card h3 { font-size: 16px; margin-bottom: 8px; }
+.why-card p { color: var(--gray); font-size: 14px; }
+
+/* ---------- Trust / onde atua ---------- */
+.trust-inner { text-align: center; max-width: 720px; }
+.trust h2 { font-size: 24px; margin-bottom: 18px; }
+.trust p { color: var(--gray); }
+.trust p strong { color: var(--off-white); }
+.trust-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.trust-tags li {
+  border: 1px solid rgba(184, 134, 11, 0.4);
+  color: var(--gold-light);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+/* ---------- CTA final ---------- */
+.cta-final {
+  text-align: center;
+  background: var(--ink-soft);
+}
+.cta-final h2 { font-size: 26px; margin-bottom: 14px; }
+.cta-final p {
+  color: var(--gray);
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer { padding: 40px 0 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+.footer-brand { display: flex; align-items: center; }
+.footer-logo-img { height: 44px; width: auto; }
+.footer-meta { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--gray); }
+.footer-meta a { color: var(--gold-light); font-weight: 600; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--gray-dim);
+}
+
+/* ==========================================================
+   Tablet — 768px and up
+   ========================================================== */
+@media (min-width: 768px) {
+  section { padding: 80px 0; }
+  .hero { padding: 64px 0 56px; }
+  .credentials-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .slogan-destaque { font-size: 26px; }
+  .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+  .footer-meta { align-items: flex-end; }
+  .footer-bottom { flex-direction: row; justify-content: space-between; }
+}
+
+/* ==========================================================
+   Desktop — 1024px and up
+   ========================================================== */
+@media (min-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 340px 1fr;
+    align-items: center;
+    gap: 56px;
+  }
+  .about-photo { margin: 0; }
+  .about-text h2 { font-size: 30px; }
+  .services-heading { flex-direction: row; justify-content: space-between; align-items: baseline; }
+  .why h2 { font-size: 28px; }
+  .cta-final h2 { font-size: 32px; }
+}
