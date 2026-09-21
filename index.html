@@ -161,18 +161,20 @@
 
     /* ---------- About ---------- */
     .about { background: var(--ink-soft); }
-    .about-grid {
+    .about-top {
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
+      align-items: center;
     }
+    /* Foto horizontal idêntica ao Figma */
     .about-photo {
       width: 100%;
-      max-width: 360px;
+      max-width: 480px;
       margin: 0 auto;
       border-radius: var(--radius);
       border: 2px solid var(--gold);
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 16 / 11;
       object-fit: cover;
     }
     .about-text h2 { font-size: 28px; margin-bottom: 24px; }
@@ -217,9 +219,7 @@
       font-size: 20px;
       line-height: 1.4;
       color: var(--off-white);
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 48px 24px;
+      margin-top: 48px;
     }
 
     /* ---------- Services ---------- */
@@ -355,7 +355,6 @@
       .credentials-grid { grid-template-columns: repeat(3, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .slogan-destaque { font-size: 26px; }
       .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
       .footer-meta { align-items: flex-end; }
       .footer-bottom { flex-direction: row; justify-content: space-between; }
@@ -371,16 +370,17 @@
       .hero-inner { align-items: flex-end; max-width: 850px; margin: 0 auto; }
       .hero-logo { margin: 0 auto; max-width: 550px; }
 
-      .about-grid {
-        grid-template-columns: 380px 1fr;
+      .about-top {
+        grid-template-columns: 460px 1fr;
         align-items: center;
         gap: 64px;
       }
-      .about-photo { margin: 0; }
+      .about-photo { margin: 0; max-width: 100%; }
       .about-text h2 { font-size: 40px; margin-bottom: 32px; }
       .about-text p { margin-bottom: 24px; }
       .formacoes-label { font-size: 18px; margin-top: 40px; margin-bottom: 20px; }
       .formacoes-list li { font-size: 18px; }
+      .slogan-destaque { font-size: 28px; margin-top: 56px; }
 
       .services-heading { flex-direction: row; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
       .services-heading h2 { font-size: 40px; margin: 0; }
@@ -459,25 +459,27 @@
 
     <!-- ===================== SOBRE ===================== -->
     <section class="about" aria-labelledby="sobre-titulo">
-      <div class="container about-grid">
-        <img class="about-photo" src="assets/perfil.jfif" alt="Davi Sena Pinheiro, técnico responsável" width="800" height="1000" loading="lazy">
-        <div class="about-text">
-          <h2 id="sobre-titulo">Quem cuida da sua instalação?</h2>
-          <p><strong>Davi Sena Pinheiro</strong> acumula mais de 8 anos de experiência prática ininterrupta em manutenção técnica e intervenções de alta complexidade em sistemas de climatização, frio alimentar e instalações elétricas.</p>
-          <p>Sua trajetória é respaldada por uma sólida formação tripla pelo <strong>Instituto Federal do Piauí (IFPI)</strong>, unindo conhecimentos profundos em ciclo de refrigeração e engenharia elétrica aplicada.</p>
-          <p>Esse domínio interdisciplinar permite diagnosticar com precisão a causa raiz de falhas, sem trocas desnecessárias de peças.</p>
-          <p class="formacoes-label">Formações técnicas oficiais:</p>
-          <ul class="formacoes-list">
-            <li>Técnico em Eletrônica</li>
-            <li>Técnico em Eletrotécnica</li>
-            <li>Técnico em Refrigeração e Climatização</li>
-          </ul>
+      <div class="container">
+        <div class="about-top">
+          <img class="about-photo" src="assets/perfil.jfif" alt="Davi Sena Pinheiro, técnico responsável" width="800" height="550" loading="lazy">
+          <div class="about-text">
+            <h2 id="sobre-titulo">Quem cuida da sua instalação?</h2>
+            <p><strong>Davi Sena Pinheiro</strong> acumula mais de 8 anos de experiência prática ininterrupta em manutenção técnica e intervenções de alta complexidade em sistemas de climatização, frio alimentar e instalações elétricas.</p>
+            <p>Sua trajetória é respaldada por uma sólida formação tripla pelo <strong>Instituto Federal do Piauí (IFPI)</strong>, unindo conhecimentos profundos em ciclo de refrigeração e engenharia elétrica aplicada.</p>
+            <p>Esse domínio interdisciplinar permite diagnosticar com precisão a causa raiz de falhas, sem trocas desnecessárias de peças.</p>
+            <p class="formacoes-label">Formações técnicas oficiais:</p>
+            <ul class="formacoes-list">
+              <li>Técnico em Eletrônica</li>
+              <li>Técnico em Eletrotécnica</li>
+              <li>Técnico em Refrigeração e Climatização</li>
+            </ul>
+          </div>
         </div>
+        
+        <!-- Slogan na mesma seção, embaixo da foto e do texto -->
+        <p class="slogan-destaque">Especialista em climatização, frio industrial e sistemas de energia.</p>
       </div>
     </section>
-
-    <!-- ===================== SLOGAN DE DESTAQUE ===================== -->
-    <p class="slogan-destaque">Especialista em climatização, frio industrial e sistemas de energia.</p>
 
     <!-- ===================== SERVIÇOS ===================== -->
     <section class="services" aria-labelledby="servicos-titulo">
