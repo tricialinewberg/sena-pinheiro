@@ -5,20 +5,12 @@ Landing page institucional de Davi Sena Pinheiro, técnico especialista em clima
 
 🔗 Site publicado: https://tricialinewberg.github.io/sena-pinheiro/
 
-Sobre o projeto
+## Sobre o projeto
 
 Página única (one-page), mobile-first e responsiva, com um único call-to-action: contato direto via WhatsApp. Desenvolvida em HTML e CSS puros, sem frameworks ou dependências de build.
 
-Estrutura
-sena-pinheiro/
-├── index.html
-├── css/
-│   └── styles.css
-├── assets/
-│   ├── logodavi.png
-│   └── perfil.jfif
-└── README.md
-Stack
+
+## Stack
 HTML5 semântico
 CSS3 (mobile-first, custom properties, grid/flexbox)
 Sem JavaScript, sem dependências externas além da fonte (Google Fonts)
