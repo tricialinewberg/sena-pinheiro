@@ -15,18 +15,19 @@
        Variáveis e Reset
        ========================================================== */
     :root {
-      --bg-main: #16181B; /* Fundo mais escuro do Figma */
-      --bg-card: #212429; /* Fundo dos cards */
+      --bg-main: #16181B; /* Fundo principal escuro */
+      --bg-card: #212429; /* Fundo dos cards (levemente mais claro) */
       --gold: #D4A520;    /* Amarelo/Dourado de destaque */
       --gold-hover: #b88f1b;
       --text-light: #E5E9F0;
       --text-muted: #9aa0ab;
       --border-subtle: rgba(255, 255, 255, 0.05);
       
-      --font-display: 'Montserrat', sans-serif; /* Títulos */
-      --font-body: 'Barlow', sans-serif; /* Textos e parágrafos */
+      --font-display: 'Montserrat', sans-serif; /* Fontes de título */
+      --font-body: 'Barlow', sans-serif; /* Fontes de texto */
       
-      --container-max: 1200px;
+      /* Aumentamos consideravelmente a largura máxima para abraçar telas grandes */
+      --container-max: 1400px;
       --radius: 8px;
     }
 
@@ -65,6 +66,7 @@
       color: #ffffff;
     }
 
+    /* Container Fluido e Largo no Desktop */
     .container {
       width: 100%;
       max-width: var(--container-max);
@@ -122,7 +124,7 @@
 
     .header-inner {
       display: flex;
-      justify-content: flex-end; /* Alinha o botão totalmente à direita */
+      justify-content: flex-end; /* Botão totalmente alinhado à direita */
       align-items: center;
     }
 
@@ -133,16 +135,17 @@
       padding: 20px 0 80px;
     }
 
-    .hero-content {
+    .hero-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centralizado no mobile */
+      align-items: center; /* Centraliza no mobile */
+      max-width: 850px;
+      margin: 0 auto; /* Centraliza o wrapper no meio da tela gigante */
       gap: 30px;
     }
 
     .hero-logo {
       width: 100%;
-      max-width: 600px;
       height: auto;
     }
 
@@ -156,17 +159,17 @@
     .credentials-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 24px;
     }
 
     .credential-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 28px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
 
     .credential-icon {
@@ -175,13 +178,13 @@
     }
 
     .credential-text h3 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
 
     .credential-text p {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text-muted);
     }
 
@@ -192,26 +195,33 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 60px; /* Espaço maior antes do slogan */
     }
 
     .about-photo img {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
       margin: 0 auto;
       border-radius: var(--radius);
       border: 2px solid var(--border-subtle);
       object-fit: cover;
     }
 
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .about-text h2 {
-      font-size: 32px;
+      font-size: 34px;
       margin-bottom: 24px;
     }
 
     .about-text p {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       color: var(--text-light);
+      font-size: 17px;
     }
 
     .about-text strong {
@@ -219,7 +229,7 @@
     }
 
     .formacoes-label {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text-muted);
       margin-top: 24px;
       margin-bottom: 12px;
@@ -229,31 +239,37 @@
     .formacoes-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .formacoes-list li {
       display: inline-flex;
       align-items: center;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--gold);
+      font-weight: 500;
     }
     
     .formacoes-list li::before {
       content: "•";
       color: var(--gold);
-      margin-right: 8px;
-      font-size: 20px;
+      margin-right: 12px;
+      font-size: 24px;
     }
 
-    /* Slogan logo abaixo da foto e texto */
+    /* Slogan Fechamento */
+    .slogan-wrapper {
+      text-align: center;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 50px;
+    }
+
     .slogan {
       font-family: var(--font-display);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 600;
       color: #ffffff;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-subtle);
+      line-height: 1.4;
     }
 
     /* ==========================================================
@@ -262,17 +278,17 @@
     .services-header {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 48px;
     }
 
     .services-header h2 {
-      font-size: 36px;
+      font-size: 38px;
     }
 
     .services-header p {
       color: var(--text-muted);
-      font-size: 16px;
+      font-size: 18px;
       font-family: var(--font-display);
       font-weight: 500;
     }
@@ -287,31 +303,30 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: 40px;
     }
 
     .service-icon {
       color: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .service-card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
+      font-size: 22px;
+      margin-bottom: 16px;
     }
 
     .service-card p {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 16px;
     }
 
     /* ==========================================================
        Por que Escolher
        ========================================================== */
     .why-header h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
-      text-align: center;
+      font-size: 34px;
+      margin-bottom: 48px;
     }
 
     .why-grid {
@@ -324,26 +339,26 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius);
-      padding: 32px;
+      padding: 36px;
     }
 
     .why-icon {
       color: var(--gold);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .why-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 12px;
     }
 
     .why-card p {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 16px;
     }
 
     /* ==========================================================
-       Confiança
+       Confiança & CTA
        ========================================================== */
     .trust {
       text-align: center;
@@ -353,20 +368,18 @@
     }
 
     .trust h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+      font-size: 32px;
+      margin-bottom: 24px;
     }
 
     .trust > p {
       max-width: 800px;
-      margin: 0 auto 32px;
+      margin: 0 auto 40px;
       color: var(--text-muted);
-      font-size: 16px;
+      font-size: 18px;
     }
     
-    .trust > p strong {
-      color: #fff;
-    }
+    .trust > p strong { color: #fff; }
 
     .trust-tags {
       display: flex;
@@ -376,37 +389,34 @@
     }
 
     .trust-tags li {
-      border: 1px solid rgba(212, 165, 32, 0.4); /* Borda amarelada leve */
+      border: 1px solid rgba(212, 165, 32, 0.4);
       color: var(--text-light);
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 50px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     
     .trust-tags li::before {
       content: "";
       display: inline-block;
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
       background-color: var(--gold);
       border-radius: 50%;
     }
 
-    /* ==========================================================
-       CTA Final
-       ========================================================== */
     .cta-final {
       text-align: center;
       padding: 100px 0;
     }
 
     .cta-final h2 {
-      font-size: 36px;
-      margin-bottom: 16px;
+      font-size: 40px;
+      margin-bottom: 20px;
     }
 
     .cta-final p {
@@ -416,41 +426,33 @@
       font-size: 18px;
     }
 
-    /* ==========================================================
-       Footer
-       ========================================================== */
     .site-footer {
       border-top: 1px solid var(--border-subtle);
-      padding: 40px 0 20px;
-      font-size: 14px;
+      padding: 60px 0 30px;
+      font-size: 15px;
     }
-
+    
     .footer-top {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 24px;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       text-align: center;
     }
 
-    .footer-logo img {
-      width: 150px;
-    }
-
-    .footer-info {
-      color: var(--text-muted);
-    }
-
+    .footer-logo img { width: 180px; }
+    .footer-info { color: var(--text-muted); }
+    
     .footer-bottom {
       border-top: 1px solid var(--border-subtle);
-      padding-top: 20px;
+      padding-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
       color: var(--text-muted);
-      font-size: 12px;
+      font-size: 14px;
       text-align: center;
     }
 
@@ -458,49 +460,43 @@
        Media Queries (Desktop)
        ========================================================== */
     @media (min-width: 768px) {
-      .credentials-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .container { padding: 0 40px; } /* Ajuste de espaçamento lateral para tablets/desktops menores */
       
-      .services-grid, .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .why-header h2 {
-        text-align: left;
-      }
-      
-      .slogan {
-        font-size: 32px;
-      }
+      .credentials-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .slogan { font-size: 32px; }
     }
 
     @media (min-width: 1024px) {
-      .hero-content {
-        align-items: flex-end; /* Alinha o conteúdo à direita no container para posicionar o botão corretamente em relação à logo */
-        max-width: 700px;
-        margin: 0 auto;
+      .container { padding: 0 60px; } /* Garante que telas muito grandes tenham um respiro agradável */
+
+      .hero-wrapper {
+        align-items: flex-end; /* Desloca o conteúdo interno (botão) para a direita do limite de 850px */
       }
-      
+
       .hero-logo {
-        margin-right: auto;
+        margin-right: auto; /* Mantém a logo centralizada no contexto do container ou alinhada de forma orgânica */
       }
 
       .about-grid {
-        grid-template-columns: 400px 1fr;
+        grid-template-columns: 480px 1fr; /* Foto ocupando 480px e o texto esticando no restante da tela */
         align-items: center;
-        gap: 60px;
+        gap: 80px; /* Maior espaçamento entre foto e texto */
       }
 
       .about-photo img {
         margin: 0;
+        max-width: 100%;
       }
 
       .services-header {
-        flex-direction: row;
+        flex-direction: row; /* Título na ESQUERDA, texto na DIREITA */
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
       }
+      
+      /* Reset para não forçar textos ao centro no desktop */
+      .why-header h2 { text-align: left; }
 
       .footer-top {
         flex-direction: row;
@@ -519,7 +515,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Sem logo aqui, apenas o botão -->
+      <!-- SEM logo. O botão fica 100% à direita devido ao justify-content: flex-end no CSS -->
       <a class="btn btn-small" href="https://wa.me/5586995769057?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5s.8 1.9.8 2.1.1.3 0 .5c-.1.2-.2.3-.4.5s-.4.5-.5.6c-.2.2-.3.4-.1.7.1.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1s1.6.7 1.9.9.5.2.5.4c.1.2.1.6-.1 1.3z"/></svg>
         Falar no WhatsApp
@@ -530,9 +526,10 @@
   <main>
     <section class="hero">
       <div class="container">
-        <div class="hero-content">
+        <!-- O Wrapper alinha os itens. A logo ocupa a largura do wrapper, o botão vai pra direita no Desktop -->
+        <div class="hero-wrapper">
           <img class="hero-logo" src="assets/logodavi.png" alt="Sena Pinheiro Elétrica e Climatização">
-          <a class="btn btn-large" href="https://wa.me/5586995769057" target="_blank" rel="noopener">
+          <a class="btn btn-large hero-btn" href="https://wa.me/5586995769057" target="_blank" rel="noopener">
             Agende seu serviço
           </a>
         </div>
@@ -542,21 +539,21 @@
     <section class="credentials">
       <div class="container credentials-grid">
         <div class="credential-card">
-          <svg class="credential-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <svg class="credential-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           <div class="credential-text">
             <h3>+8 anos</h3>
             <p>de experiência técnica</p>
           </div>
         </div>
         <div class="credential-card">
-          <svg class="credential-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          <svg class="credential-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
           <div class="credential-text">
             <h3>3 formações</h3>
             <p>técnicas pelo IFPI</p>
           </div>
         </div>
         <div class="credential-card">
-          <svg class="credential-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <svg class="credential-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
           <div class="credential-text">
             <h3>Atendimento</h3>
             <p>residencial e industrial</p>
@@ -567,6 +564,7 @@
 
     <section class="about">
       <div class="container">
+        <!-- Bloco 1: Foto (Esquerda) e Texto (Direita) -->
         <div class="about-grid">
           <div class="about-photo">
             <img src="assets/perfil.jfif" alt="Davi Sena Pinheiro">
@@ -585,14 +583,17 @@
             </ul>
           </div>
         </div>
-        <!-- SLOGAN EXATAMENTE ABAIXO DA SEÇÃO SOBRE -->
-        <p class="slogan">Especialista em climatização, frio industrial e sistemas de energia.</p>
+        
+        <!-- Bloco 2: Slogan isolado dentro da mesma seção, agindo como fechamento -->
+        <div class="slogan-wrapper">
+          <p class="slogan">Especialista em climatização, frio industrial e sistemas de energia.</p>
+        </div>
       </div>
     </section>
 
     <section class="services">
       <div class="container">
-        <!-- CABEÇALHO ALINHADO NA MESMA LINHA NO DESKTOP -->
+        <!-- Título na Esquerda, Subtítulo na Direita em Desktop -->
         <div class="services-header">
           <h2>Serviços</h2>
           <p>Projetos, montagem e manutenção preventiva e corretiva</p>
@@ -600,25 +601,25 @@
         
         <div class="services-grid">
           <div class="service-card">
-            <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
             <h3>Elétrica Residencial e Industrial</h3>
             <p>Montagem de quadros de distribuição, balanceamento de cargas, circuitos de comando, correção de fator de potência e adequação às normas NBR 5410.</p>
           </div>
           
           <div class="service-card">
-            <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
             <h3>Instalação e Manutenção de Ar Condicionado</h3>
             <p>Dimensionamento de carga térmica, instalação padrão split e multi-split, higienização técnica, recarga de fluido com balança e vacuômetro digital.</p>
           </div>
           
           <div class="service-card">
-            <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line></svg>
             <h3>Câmara Fria</h3>
             <p>Montagem, manutenção e parametrização de controladores eletrônicos em câmaras frigoríficas de congelados e resfriados para comércios e indústrias.</p>
           </div>
           
           <div class="service-card">
-            <svg class="service-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             <h3>Energia Solar</h3>
             <p>Instalação, comissionamento e manutenção técnica preventiva de inversores, arranjos fotovoltaicos e sistemas de proteção contra surtos (DPS).</p>
           </div>
@@ -633,25 +634,25 @@
         </div>
         <div class="why-grid">
           <div class="why-card">
-            <svg class="why-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <h3>Diagnóstico Sincero</h3>
             <p>Resolve o problema na origem, não só o sintoma. Elimina reincidências e gastos desnecessários com reposição de peças.</p>
           </div>
           
           <div class="why-card">
-            <svg class="why-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
             <h3>Residencial e Industrial</h3>
             <p>Da sua casa a grandes instalações comerciais e fabris, com o mesmo nível de rigor e acabamento técnico.</p>
           </div>
           
           <div class="why-card">
-            <svg class="why-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
             <h3>Formação Técnica Tripla</h3>
             <p>Elétrica, eletrônica e refrigeração sob o mesmo profissional. Visão unificada entre termodinâmica e comando.</p>
           </div>
           
           <div class="why-card">
-            <svg class="why-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             <h3>Ambientes Críticos</h3>
             <p>Experiência comprovada em operações de funcionamento contínuo 24/7 onde a temperatura e a energia não podem falhar.</p>
           </div>
@@ -689,7 +690,6 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-logo">
-          <!-- Logo no footer conforme o print -->
           <img src="assets/logodavi.png" alt="Sena Pinheiro Logo">
         </div>
         <div class="footer-info">
