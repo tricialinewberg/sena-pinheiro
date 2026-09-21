@@ -1,5 +1,5 @@
 # Sena Pinheiro | Elétrica e Climatização
-Sena Pinheiro | Elétrica e Climatização
+
 
 Landing page institucional de Davi Sena Pinheiro, técnico especialista em climatização, frio industrial e sistemas de energia em Teresina, Piauí.
 
