@@ -168,7 +168,7 @@
     }
     .about-photo {
       width: 100%;
-      max-width: 400px;
+      max-width: 360px;
       margin: 0 auto;
       border-radius: var(--radius);
       border: 2px solid var(--gold);
@@ -211,14 +211,15 @@
 
     /* ---------- Slogan destaque ---------- */
     .slogan-destaque {
+      text-align: center;
       font-family: var(--font-display);
       font-weight: 500;
       font-size: 20px;
       line-height: 1.4;
       color: var(--off-white);
-      margin-top: 48px;
-      padding-top: 48px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px;
     }
 
     /* ---------- Services ---------- */
@@ -354,24 +355,24 @@
       .credentials-grid { grid-template-columns: repeat(3, 1fr); }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .slogan-destaque { font-size: 26px; }
       .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
       .footer-meta { align-items: flex-end; }
       .footer-bottom { flex-direction: row; justify-content: space-between; }
     }
 
     /* ==========================================================
-       Desktop — 1024px and up (Ajuste para telas grandes)
+       Desktop — 1024px and up
        ========================================================== */
     @media (min-width: 1024px) {
       body { font-size: 20px; }
       p { font-size: 20px; line-height: 1.8; }
 
-      /* Hero e botão desalinhados à direita com inteligência */
       .hero-inner { align-items: flex-end; max-width: 850px; margin: 0 auto; }
       .hero-logo { margin: 0 auto; max-width: 550px; }
 
       .about-grid {
-        grid-template-columns: 400px 1fr;
+        grid-template-columns: 380px 1fr;
         align-items: center;
         gap: 64px;
       }
@@ -380,7 +381,6 @@
       .about-text p { margin-bottom: 24px; }
       .formacoes-label { font-size: 18px; margin-top: 40px; margin-bottom: 20px; }
       .formacoes-list li { font-size: 18px; }
-      .slogan-destaque { font-size: 28px; text-align: left; margin-top: 64px; padding-top: 40px; }
 
       .services-heading { flex-direction: row; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
       .services-heading h2 { font-size: 40px; margin: 0; }
@@ -472,11 +472,12 @@
             <li>Técnico em Eletrotécnica</li>
             <li>Técnico em Refrigeração e Climatização</li>
           </ul>
-          
-          <p class="slogan-destaque">Especialista em climatização, frio industrial e sistemas de energia.</p>
         </div>
       </div>
     </section>
+
+    <!-- ===================== SLOGAN DE DESTAQUE ===================== -->
+    <p class="slogan-destaque">Especialista em climatização, frio industrial e sistemas de energia.</p>
 
     <!-- ===================== SERVIÇOS ===================== -->
     <section class="services" aria-labelledby="servicos-titulo">
