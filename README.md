@@ -22,4 +22,6 @@ Página única (one-page), mobile-first e responsiva, com um único call-to-acti
 - Hierarquia de headings lógica (H1 → H2 → H3)
 
 
+
+
 © Sena Pinheiro | Elétrica e Climatização. Site desenvolvido por Trícia Linewberg. Todos os direitos reservados.
