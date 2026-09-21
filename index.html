@@ -3,668 +3,547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sena Pinheiro | Elétrica e Climatização</title>
-  <meta name="description" content="Especialista em climatização, frio industrial e sistemas de energia.">
-  
+  <title>Sena Pinheiro | Elétrica e Climatização — Teresina, PI</title>
+  <meta name="description" content="Técnico especialista em climatização, frio industrial e sistemas de energia em Teresina, Piauí. Elétrica residencial e industrial, ar condicionado, câmara fria e energia solar.">
+  <link rel="icon" href="assets/logodavi.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================
-       Variáveis e Reset
+       Sena Pinheiro | Elétrica e Climatização
+       Mobile-first, responsive, accessible stylesheet
        ========================================================== */
+
     :root {
-      --bg-main: #16181B; /* Fundo principal escuro */
-      --bg-card: #212429; /* Fundo dos cards (levemente mais claro) */
-      --gold: #D4A520;    /* Amarelo/Dourado de destaque */
-      --gold-hover: #b88f1b;
-      --text-light: #E5E9F0;
-      --text-muted: #9aa0ab;
-      --border-subtle: rgba(255, 255, 255, 0.05);
-      
-      --font-display: 'Montserrat', sans-serif; /* Fontes de título */
-      --font-body: 'Barlow', sans-serif; /* Fontes de texto */
-      
-      /* Aumentamos consideravelmente a largura máxima para abraçar telas grandes */
+      --gold: #B8860B;
+      --gold-light: #d4a520;
+      --ink: #16181b;
+      --ink-soft: #212429;
+      --card: #272b32;
+      --off-white: #E5E9F0;
+      --gray: #9aa0ab;
+      --gray-dim: #6b7280;
+
+      --font-display: "Montserrat", sans-serif;
+      --font-body: "Barlow", sans-serif;
+
       --container-max: 1400px;
-      --radius: 8px;
+      --radius: 12px;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* ---------- Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background-color: var(--bg-main);
-      color: var(--text-light);
+      margin: 0;
+      background: var(--ink);
+      color: var(--off-white);
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.2; }
+    p { margin: 0 0 1em; }
+    p:last-child { margin-bottom: 0; }
 
-    img {
-      max-width: 100%;
-      display: block;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    /* ---------- Accessibility ---------- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 12px 20px;
+      z-index: 1000;
+      font-weight: 600;
+      border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus { left: 0; }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--gold-light);
+      outline-offset: 3px;
     }
 
-    ul {
-      list-style: none;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-display);
-      line-height: 1.2;
-      color: #ffffff;
-    }
-
-    /* Container Fluido e Largo no Desktop */
+    /* ---------- Layout helpers ---------- */
     .container {
       width: 100%;
       max-width: var(--container-max);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
     }
+    section { padding: 64px 0; }
 
-    section {
-      padding: 60px 0;
-    }
-
-    /* ==========================================================
-       Botões
-       ========================================================== */
+    /* ---------- Buttons ---------- */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background-color: var(--gold);
-      color: #000;
-      font-family: var(--font-display);
-      font-weight: 700;
-      border-radius: 50px;
-      transition: background-color 0.2s, transform 0.1s;
+      min-height: 44px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 15px;
+      white-space: nowrap;
+      transition: transform 0.15s ease, background 0.15s ease;
       cursor: pointer;
     }
-    
-    .btn:hover {
-      background-color: var(--gold-hover);
+    .btn-whatsapp {
+      background: var(--gold);
+      color: var(--ink);
     }
-    
-    .btn:active {
-      transform: scale(0.98);
+    .btn-whatsapp:hover,
+    .btn-whatsapp:focus-visible {
+      background: var(--gold-light);
     }
+    .btn-whatsapp:active { transform: scale(0.98); }
+    .btn-large { padding: 16px 32px; font-size: 17px; }
+    .btn-compact { padding: 10px 18px; font-size: 14px; }
 
-    .btn-small {
-      padding: 10px 24px;
-      font-size: 14px;
-    }
-
-    .btn-large {
-      padding: 16px 36px;
-      font-size: 18px;
-    }
-
-    /* ==========================================================
-       Header
-       ========================================================== */
+    /* ---------- Header ---------- */
     .site-header {
-      padding: 24px 0;
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(22, 24, 27, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(184, 134, 11, 0.2);
     }
-
     .header-inner {
       display: flex;
-      justify-content: flex-end; /* Botão totalmente alinhado à direita */
       align-items: center;
+      justify-content: flex-end;
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
 
-    /* ==========================================================
-       Hero Section
-       ========================================================== */
-    .hero {
-      padding: 20px 0 80px;
-    }
-
-    .hero-wrapper {
+    /* ---------- Hero ---------- */
+    .hero { padding: 48px 0 56px; text-align: center; }
+    .hero-inner {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centraliza no mobile */
-      max-width: 850px;
-      margin: 0 auto; /* Centraliza o wrapper no meio da tela gigante */
-      gap: 30px;
+      align-items: center;
+      gap: 32px;
     }
+    .hero-logo { width: 100%; max-width: 500px; height: auto; }
 
-    .hero-logo {
-      width: 100%;
-      height: auto;
-    }
-
-    /* ==========================================================
-       Credentials (Números)
-       ========================================================== */
-    .credentials {
-      padding: 0 0 80px;
-    }
-
+    /* ---------- Credentials ---------- */
+    .credentials { padding: 0 0 48px; }
     .credentials-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .credential-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius);
-      padding: 28px;
-      display: flex;
-      align-items: center;
       gap: 20px;
     }
-
-    .credential-icon {
-      color: var(--gold);
-      flex-shrink: 0;
+    .credential-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--ink-soft);
+      border: 1px solid rgba(184, 134, 11, 0.25);
+      border-radius: var(--radius);
+      padding: 24px;
     }
+    .credential-icon { width: 28px; height: 28px; flex-shrink: 0; color: var(--gold); }
+    .credential-number { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin: 0; color: var(--off-white); }
+    .credential-label { color: var(--gray); font-size: 15px; margin: 0; }
 
-    .credential-text h3 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .credential-text p {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
-
-    /* ==========================================================
-       Sobre o Técnico
-       ========================================================== */
+    /* ---------- About ---------- */
+    .about { background: var(--ink-soft); }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
-      margin-bottom: 60px; /* Espaço maior antes do slogan */
     }
-
-    .about-photo img {
+    .about-photo {
       width: 100%;
-      max-width: 500px;
+      max-width: 400px;
       margin: 0 auto;
       border-radius: var(--radius);
-      border: 2px solid var(--border-subtle);
+      border: 2px solid var(--gold);
+      aspect-ratio: 4 / 5;
       object-fit: cover;
     }
-
-    .about-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .about-text h2 {
-      font-size: 34px;
-      margin-bottom: 24px;
-    }
-
-    .about-text p {
-      margin-bottom: 18px;
-      color: var(--text-light);
-      font-size: 17px;
-    }
-
-    .about-text strong {
-      color: #fff;
-    }
-
+    .about-text h2 { font-size: 28px; margin-bottom: 24px; }
+    .about-text p { color: var(--off-white); margin-bottom: 1.2rem; }
+    .about-text strong { color: var(--gold-light); }
+    
     .formacoes-label {
+      font-family: var(--font-body);
       font-size: 15px;
-      color: var(--text-muted);
-      margin-top: 24px;
-      margin-bottom: 12px;
-      display: block;
+      letter-spacing: 0.04em;
+      color: var(--gray);
+      margin-top: 32px;
+      margin-bottom: 16px;
     }
-
     .formacoes-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 16px;
     }
-
     .formacoes-list li {
-      display: inline-flex;
-      align-items: center;
-      font-size: 15px;
-      color: var(--gold);
+      color: var(--gold-light);
       font-weight: 500;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    
     .formacoes-list li::before {
-      content: "•";
-      color: var(--gold);
-      margin-right: 12px;
-      font-size: 24px;
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      background-color: var(--gold);
+      border-radius: 50%;
     }
 
-    /* Slogan Fechamento */
-    .slogan-wrapper {
-      text-align: center;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 50px;
-    }
-
-    .slogan {
+    /* ---------- Slogan destaque ---------- */
+    .slogan-destaque {
       font-family: var(--font-display);
-      font-size: 26px;
-      font-weight: 600;
-      color: #ffffff;
+      font-weight: 500;
+      font-size: 20px;
       line-height: 1.4;
+      color: var(--off-white);
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* ==========================================================
-       Serviços
-       ========================================================== */
-    .services-header {
+    /* ---------- Services ---------- */
+    .services-heading {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 48px;
+      gap: 8px;
+      margin-bottom: 36px;
     }
-
-    .services-header h2 {
-      font-size: 38px;
-    }
-
-    .services-header p {
-      color: var(--text-muted);
-      font-size: 18px;
-      font-family: var(--font-display);
-      font-weight: 500;
-    }
-
+    .services-heading h2 { font-size: 28px; }
+    .services-heading p { color: var(--gray); font-size: 15px; }
     .services-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 24px;
     }
-
     .service-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--ink-soft);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
-      padding: 40px;
+      padding: 32px;
     }
-
     .service-icon {
+      width: 48px;
+      height: 48px;
       color: var(--gold);
-      margin-bottom: 24px;
+      border: 1.5px solid var(--gold);
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
     }
+    .service-card h3 { font-size: 19px; margin-bottom: 12px; }
+    .service-card p { color: var(--gray); font-size: 15px; }
 
-    .service-card h3 {
-      font-size: 22px;
-      margin-bottom: 16px;
+    /* ---------- Why choose ---------- */
+    .why { background: var(--ink-soft); }
+    .why h2 {
+      font-size: 28px;
+      max-width: 700px;
+      margin-bottom: 36px;
     }
-
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 16px;
-    }
-
-    /* ==========================================================
-       Por que Escolher
-       ========================================================== */
-    .why-header h2 {
-      font-size: 34px;
-      margin-bottom: 48px;
-    }
-
     .why-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 24px;
     }
-
     .why-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--card);
       border-radius: var(--radius);
-      padding: 36px;
+      padding: 32px;
     }
-
     .why-icon {
+      width: 44px;
+      height: 44px;
       color: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
+    .why-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .why-card p { color: var(--gray); font-size: 15px; }
 
-    .why-card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .why-card p {
-      color: var(--text-muted);
-      font-size: 16px;
-    }
-
-    /* ==========================================================
-       Confiança & CTA
-       ========================================================== */
-    .trust {
-      text-align: center;
-      padding: 80px 0;
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .trust h2 {
-      font-size: 32px;
-      margin-bottom: 24px;
-    }
-
-    .trust > p {
-      max-width: 800px;
-      margin: 0 auto 40px;
-      color: var(--text-muted);
-      font-size: 18px;
-    }
-    
-    .trust > p strong { color: #fff; }
-
+    /* ---------- Trust / onde atua ---------- */
+    .trust-inner { text-align: center; max-width: 1000px; margin: 0 auto; }
+    .trust h2 { font-size: 28px; margin-bottom: 24px; }
+    .trust p { color: var(--gray); }
+    .trust p strong { color: var(--off-white); }
     .trust-tags {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
+      margin-top: 40px;
     }
-
     .trust-tags li {
-      border: 1px solid rgba(212, 165, 32, 0.4);
-      color: var(--text-light);
+      border: 1px solid var(--gold);
+      color: var(--off-white);
+      font-size: 14px;
       padding: 12px 24px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 500;
+      border-radius: 999px;
       display: flex;
       align-items: center;
       gap: 10px;
+      background: transparent;
     }
-    
     .trust-tags li::before {
       content: "";
-      display: inline-block;
-      width: 8px;
-      height: 8px;
+      display: block;
+      width: 6px;
+      height: 6px;
       background-color: var(--gold);
       border-radius: 50%;
     }
 
+    /* ---------- CTA final ---------- */
     .cta-final {
       text-align: center;
-      padding: 100px 0;
+      background: var(--ink-soft);
     }
-
-    .cta-final h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-
+    .cta-final h2 { font-size: 28px; margin-bottom: 16px; }
     .cta-final p {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 40px;
-      font-size: 18px;
+      color: var(--gray);
+      max-width: 540px;
+      margin: 0 auto 32px;
     }
 
-    .site-footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 60px 0 30px;
-      font-size: 15px;
-    }
-    
-    .footer-top {
+    /* ---------- Footer ---------- */
+    .site-footer { padding: 48px 0 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-inner {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 24px;
-      margin-bottom: 50px;
-      text-align: center;
+      padding-bottom: 32px;
     }
-
-    .footer-logo img { width: 180px; }
-    .footer-info { color: var(--text-muted); }
-    
+    .footer-brand { display: flex; align-items: center; }
+    .footer-logo-img { height: 48px; width: auto; }
+    .footer-meta { display: flex; flex-direction: column; gap: 8px; font-size: 15px; color: var(--gray); }
+    .footer-meta a { color: var(--gold-light); font-weight: 600; }
     .footer-bottom {
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-muted);
-      font-size: 14px;
-      text-align: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--gray-dim);
     }
 
     /* ==========================================================
-       Media Queries (Desktop)
+       Tablet — 768px and up
        ========================================================== */
     @media (min-width: 768px) {
-      .container { padding: 0 40px; } /* Ajuste de espaçamento lateral para tablets/desktops menores */
-      
+      section { padding: 80px 0; }
+      .hero { padding: 64px 0; }
       .credentials-grid { grid-template-columns: repeat(3, 1fr); }
-      .services-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .slogan { font-size: 32px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+      .footer-meta { align-items: flex-end; }
+      .footer-bottom { flex-direction: row; justify-content: space-between; }
     }
 
+    /* ==========================================================
+       Desktop — 1024px and up (Ajuste para telas grandes)
+       ========================================================== */
     @media (min-width: 1024px) {
-      .container { padding: 0 60px; } /* Garante que telas muito grandes tenham um respiro agradável */
+      body { font-size: 20px; }
+      p { font-size: 20px; line-height: 1.8; }
 
-      .hero-wrapper {
-        align-items: flex-end; /* Desloca o conteúdo interno (botão) para a direita do limite de 850px */
-      }
-
-      .hero-logo {
-        margin-right: auto; /* Mantém a logo centralizada no contexto do container ou alinhada de forma orgânica */
-      }
+      /* Hero e botão desalinhados à direita com inteligência */
+      .hero-inner { align-items: flex-end; max-width: 850px; margin: 0 auto; }
+      .hero-logo { margin: 0 auto; max-width: 550px; }
 
       .about-grid {
-        grid-template-columns: 480px 1fr; /* Foto ocupando 480px e o texto esticando no restante da tela */
+        grid-template-columns: 400px 1fr;
         align-items: center;
-        gap: 80px; /* Maior espaçamento entre foto e texto */
+        gap: 64px;
       }
+      .about-photo { margin: 0; }
+      .about-text h2 { font-size: 40px; margin-bottom: 32px; }
+      .about-text p { margin-bottom: 24px; }
+      .formacoes-label { font-size: 18px; margin-top: 40px; margin-bottom: 20px; }
+      .formacoes-list li { font-size: 18px; }
+      .slogan-destaque { font-size: 28px; text-align: left; margin-top: 64px; padding-top: 40px; }
 
-      .about-photo img {
-        margin: 0;
-        max-width: 100%;
-      }
+      .services-heading { flex-direction: row; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+      .services-heading h2 { font-size: 40px; margin: 0; }
+      .services-heading p { font-size: 20px; margin: 0; max-width: 450px; text-align: right; }
 
-      .services-header {
-        flex-direction: row; /* Título na ESQUERDA, texto na DIREITA */
-        justify-content: space-between;
-        align-items: flex-end;
-      }
-      
-      /* Reset para não forçar textos ao centro no desktop */
-      .why-header h2 { text-align: left; }
+      .why h2 { font-size: 40px; margin-bottom: 48px; max-width: 800px; }
+      .service-card h3, .why-card h3 { font-size: 24px; }
+      .service-card p, .why-card p { font-size: 18px; }
 
-      .footer-top {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-      }
+      .trust h2 { font-size: 40px; margin-bottom: 32px; }
+      .trust p { font-size: 20px; }
+      .trust-tags li { font-size: 18px; padding: 14px 28px; }
 
-      .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-      }
+      .cta-final h2 { font-size: 44px; margin-bottom: 24px; }
+      .cta-final p { font-size: 20px; max-width: 700px; margin-bottom: 40px; }
     }
   </style>
 </head>
 <body>
 
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- SEM logo. O botão fica 100% à direita devido ao justify-content: flex-end no CSS -->
-      <a class="btn btn-small" href="https://wa.me/5586995769057?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20or%C3%A7amento" target="_blank" rel="noopener">
+      <a class="btn btn-whatsapp btn-compact"
+         href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20or%C3%A7amento"
+         target="_blank" rel="noopener">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5s.8 1.9.8 2.1.1.3 0 .5c-.1.2-.2.3-.4.5s-.4.5-.5.6c-.2.2-.3.4-.1.7.1.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1s1.6.7 1.9.9.5.2.5.4c.1.2.1.6-.1 1.3z"/></svg>
-        Falar no WhatsApp
+        <span>Falar no WhatsApp</span>
       </a>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <!-- O Wrapper alinha os itens. A logo ocupa a largura do wrapper, o botão vai pra direita no Desktop -->
-        <div class="hero-wrapper">
-          <img class="hero-logo" src="assets/logodavi.png" alt="Sena Pinheiro Elétrica e Climatização">
-          <a class="btn btn-large hero-btn" href="https://wa.me/5586995769057" target="_blank" rel="noopener">
-            Agende seu serviço
-          </a>
-        </div>
+  <main id="conteudo-principal">
+
+    <!-- ===================== HERO ===================== -->
+    <section id="topo" class="hero">
+      <div class="container hero-inner">
+        <img class="hero-logo" src="assets/logodavi.png" alt="Sena Pinheiro — Elétrica e Climatização" width="900" height="337">
+        <a class="btn btn-whatsapp btn-large"
+           href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20or%C3%A7amento"
+           target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5s.8 1.9.8 2.1.1.3 0 .5c-.1.2-.2.3-.4.5s-.4.5-.5.6c-.2.2-.3.4-.1.7.1.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1s1.6.7 1.9.9.5.2.5.4c.1.2.1.6-.1 1.3z"/></svg>
+          <span>Agende seu serviço</span>
+        </a>
       </div>
     </section>
 
-    <section class="credentials">
+    <!-- ===================== CREDENCIAIS ===================== -->
+    <section class="credentials" aria-label="Credenciais">
       <div class="container credentials-grid">
         <div class="credential-card">
-          <svg class="credential-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <div class="credential-text">
-            <h3>+8 anos</h3>
-            <p>de experiência técnica</p>
+          <svg class="credential-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <div>
+            <p class="credential-number">+8 anos</p>
+            <p class="credential-label">de experiência técnica</p>
           </div>
         </div>
         <div class="credential-card">
-          <svg class="credential-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-          <div class="credential-text">
-            <h3>3 formações</h3>
-            <p>técnicas pelo IFPI</p>
+          <svg class="credential-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10 12 4l9 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div>
+            <p class="credential-number">3 formações</p>
+            <p class="credential-label">técnicas pelo IFPI</p>
           </div>
         </div>
         <div class="credential-card">
-          <svg class="credential-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-          <div class="credential-text">
-            <h3>Atendimento</h3>
-            <p>residencial e industrial</p>
+          <svg class="credential-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div>
+            <p class="credential-number">Atendimento</p>
+            <p class="credential-label">residencial e industrial</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="about">
-      <div class="container">
-        <!-- Bloco 1: Foto (Esquerda) e Texto (Direita) -->
-        <div class="about-grid">
-          <div class="about-photo">
-            <img src="assets/perfil.jfif" alt="Davi Sena Pinheiro">
-          </div>
-          <div class="about-text">
-            <h2>Quem cuida da sua instalação?</h2>
-            <p><strong>Davi Sena Pinheiro</strong> acumula mais de 8 anos de experiência prática ininterrupta em manutenção técnica e intervenções de alta complexidade em sistemas de climatização, frio alimentar e instalações elétricas.</p>
-            <p>Sua trajetória é respaldada por uma sólida formação tripla pelo <strong>Instituto Federal do Piauí (IFPI)</strong>, unindo conhecimentos profundos em ciclo de refrigeração e engenharia elétrica aplicada.</p>
-            <p>Esse domínio interdisciplinar permite diagnosticar com precisão a causa raiz de falhas, sem trocas desnecessárias de peças.</p>
-            
-            <span class="formacoes-label">Formações técnicas oficiais:</span>
-            <ul class="formacoes-list">
-              <li>Técnico em Eletrônica</li>
-              <li>Técnico em Eletrotécnica</li>
-              <li>Técnico em Refrigeração e Climatização</li>
-            </ul>
-          </div>
-        </div>
-        
-        <!-- Bloco 2: Slogan isolado dentro da mesma seção, agindo como fechamento -->
-        <div class="slogan-wrapper">
-          <p class="slogan">Especialista em climatização, frio industrial e sistemas de energia.</p>
+    <!-- ===================== SOBRE ===================== -->
+    <section class="about" aria-labelledby="sobre-titulo">
+      <div class="container about-grid">
+        <img class="about-photo" src="assets/perfil.jfif" alt="Davi Sena Pinheiro, técnico responsável" width="800" height="1000" loading="lazy">
+        <div class="about-text">
+          <h2 id="sobre-titulo">Quem cuida da sua instalação?</h2>
+          <p><strong>Davi Sena Pinheiro</strong> acumula mais de 8 anos de experiência prática ininterrupta em manutenção técnica e intervenções de alta complexidade em sistemas de climatização, frio alimentar e instalações elétricas.</p>
+          <p>Sua trajetória é respaldada por uma sólida formação tripla pelo <strong>Instituto Federal do Piauí (IFPI)</strong>, unindo conhecimentos profundos em ciclo de refrigeração e engenharia elétrica aplicada.</p>
+          <p>Esse domínio interdisciplinar permite diagnosticar com precisão a causa raiz de falhas, sem trocas desnecessárias de peças.</p>
+          <p class="formacoes-label">Formações técnicas oficiais:</p>
+          <ul class="formacoes-list">
+            <li>Técnico em Eletrônica</li>
+            <li>Técnico em Eletrotécnica</li>
+            <li>Técnico em Refrigeração e Climatização</li>
+          </ul>
+          
+          <p class="slogan-destaque">Especialista em climatização, frio industrial e sistemas de energia.</p>
         </div>
       </div>
     </section>
 
-    <section class="services">
+    <!-- ===================== SERVIÇOS ===================== -->
+    <section class="services" aria-labelledby="servicos-titulo">
       <div class="container">
-        <!-- Título na Esquerda, Subtítulo na Direita em Desktop -->
-        <div class="services-header">
-          <h2>Serviços</h2>
+        <div class="services-heading">
+          <h2 id="servicos-titulo">Serviços</h2>
           <p>Projetos, montagem e manutenção preventiva e corretiva</p>
         </div>
-        
         <div class="services-grid">
-          <div class="service-card">
-            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          <article class="service-card">
+            <svg class="service-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h16M8 6v12M16 6v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <h3>Elétrica Residencial e Industrial</h3>
             <p>Montagem de quadros de distribuição, balanceamento de cargas, circuitos de comando, correção de fator de potência e adequação às normas NBR 5410.</p>
-          </div>
-          
-          <div class="service-card">
-            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </article>
+          <article class="service-card">
+            <svg class="service-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 10h2M7 14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <h3>Instalação e Manutenção de Ar Condicionado</h3>
             <p>Dimensionamento de carga térmica, instalação padrão split e multi-split, higienização técnica, recarga de fluido com balança e vacuômetro digital.</p>
-          </div>
-          
-          <div class="service-card">
-            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+          </article>
+          <article class="service-card">
+            <svg class="service-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="2"/></svg>
             <h3>Câmara Fria</h3>
             <p>Montagem, manutenção e parametrização de controladores eletrônicos em câmaras frigoríficas de congelados e resfriados para comércios e indústrias.</p>
-          </div>
-          
-          <div class="service-card">
-            <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </article>
+          <article class="service-card">
+            <svg class="service-icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/><rect x="13" y="4" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="13" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/><rect x="13" y="13" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             <h3>Energia Solar</h3>
             <p>Instalação, comissionamento e manutenção técnica preventiva de inversores, arranjos fotovoltaicos e sistemas de proteção contra surtos (DPS).</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="why">
+    <!-- ===================== POR QUE ESCOLHER ===================== -->
+    <section class="why" aria-labelledby="why-titulo">
       <div class="container">
-        <div class="why-header">
-          <h2>Por que escolher a Sena Pinheiro | Elétrica e Climatização?</h2>
-        </div>
+        <h2 id="why-titulo">Por que escolher a Sena Pinheiro | Elétrica e Climatização?</h2>
         <div class="why-grid">
-          <div class="why-card">
-            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <article class="why-card">
+            <svg class="why-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14.5 14.5 20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <h3>Diagnóstico Sincero</h3>
             <p>Resolve o problema na origem, não só o sintoma. Elimina reincidências e gastos desnecessários com reposição de peças.</p>
-          </div>
-          
-          <div class="why-card">
-            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          </article>
+          <article class="why-card">
+            <svg class="why-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 21v-7h6v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
             <h3>Residencial e Industrial</h3>
             <p>Da sua casa a grandes instalações comerciais e fabris, com o mesmo nível de rigor e acabamento técnico.</p>
-          </div>
-          
-          <div class="why-card">
-            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </article>
+          <article class="why-card">
+            <svg class="why-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
             <h3>Formação Técnica Tripla</h3>
             <p>Elétrica, eletrônica e refrigeração sob o mesmo profissional. Visão unificada entre termodinâmica e comando.</p>
-          </div>
-          
-          <div class="why-card">
-            <svg class="why-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </article>
+          <article class="why-card">
+            <svg class="why-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <h3>Ambientes Críticos</h3>
             <p>Experiência comprovada em operações de funcionamento contínuo 24/7 onde a temperatura e a energia não podem falhar.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="trust">
-      <div class="container">
-        <h2>Confiança em ambientes críticos</h2>
+    <!-- ===================== ONDE ATUA ===================== -->
+    <section class="trust" aria-labelledby="trust-titulo">
+      <div class="container trust-inner">
+        <h2 id="trust-titulo">Confiança em ambientes críticos</h2>
         <p>Atuação de campo consolidada em operações com exigência inegociável de funcionamento contínuo, incluindo a agência central do <strong>Banco do Brasil em Teresina</strong> e sistemas de centrais de água gelada (Chillers) para grandes estruturas corporativas e comerciais da capital piauiense.</p>
-        
         <ul class="trust-tags">
           <li>Banco do Brasil — Sede Teresina</li>
           <li>Centrais de água gelada (CAG)</li>
@@ -673,35 +552,36 @@
       </div>
     </section>
 
-    <section class="cta-final">
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="cta-final" aria-labelledby="cta-final-titulo">
       <div class="container">
-        <h2>Pronto para resolver de vez?</h2>
+        <h2 id="cta-final-titulo">Pronto para resolver de vez?</h2>
         <p>Converse diretamente com o técnico responsável. Tire suas dúvidas, envie fotos da sua instalação e agende uma visita técnica ou diagnóstico no local.</p>
-        
-        <a class="btn btn-large" href="https://wa.me/5586995769057" target="_blank" rel="noopener">
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" style="margin-right: 8px;"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5s.8 1.9.8 2.1.1.3 0 .5c-.1.2-.2.3-.4.5s-.4.5-.5.6c-.2.2-.3.4-.1.7.1.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1s1.6.7 1.9.9.5.2.5.4c.1.2.1.6-.1 1.3z"/></svg>
-          Falar no WhatsApp agora
+        <a class="btn btn-whatsapp btn-large"
+           href="https://wa.me/5586900000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20preciso%20de%20um%20or%C3%A7amento"
+           target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-5-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5s.8 1.9.8 2.1.1.3 0 .5c-.1.2-.2.3-.4.5s-.4.5-.5.6c-.2.2-.3.4-.1.7.1.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1s1.6.7 1.9.9.5.2.5.4c.1.2.1.6-.1 1.3z"/></svg>
+          <span>Falar no WhatsApp agora</span>
         </a>
       </div>
     </section>
+
   </main>
 
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <img src="assets/logodavi.png" alt="Sena Pinheiro Logo">
-        </div>
-        <div class="footer-info">
-          <p>Teresina, Piauí — Brasil</p>
-          <a href="https://wa.me/5586995769057" style="color: var(--gold); font-weight: 600; margin-top: 8px; display: inline-block;">WhatsApp Direto →</a>
-        </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logodavi.png" alt="Sena Pinheiro — Elétrica e Climatização" class="footer-logo-img">
       </div>
-      
-      <div class="footer-bottom">
-        <p>© 2026 Sena Pinheiro | Elétrica e Climatização. Todos os direitos reservados.</p>
-        <p>Técnico responsável: Davi Sena Pinheiro</p>
+      <div class="footer-meta">
+        <p>Teresina, Piauí — Brasil</p>
+        <a href="https://wa.me/5586900000000" target="_blank" rel="noopener">WhatsApp Direto →</a>
       </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Sena Pinheiro | Elétrica e Climatização. Todos os direitos reservados.</p>
+      <p>Técnico responsável: Davi Sena Pinheiro</p>
     </div>
   </footer>
 
