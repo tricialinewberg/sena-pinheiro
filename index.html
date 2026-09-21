@@ -56,6 +56,42 @@
       * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
 
+    /* ---------- Animações e Efeitos ---------- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .credential-card {
+      animation: fadeInUp 0.8s ease backwards;
+    }
+    .credential-card:nth-child(1) { animation-delay: 0.1s; }
+    .credential-card:nth-child(2) { animation-delay: 0.25s; }
+    .credential-card:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Efeito de levitação (Hover) nos cards */
+    .credential-card, .service-card, .why-card, .trust-tags li {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .credential-card:hover, .service-card:hover, .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      border-color: rgba(184, 134, 11, 0.6);
+    }
+
+    .trust-tags li:hover {
+      transform: translateY(-3px);
+      background: rgba(184, 134, 11, 0.1);
+      border-color: var(--gold-light);
+    }
+
     /* ---------- Accessibility ---------- */
     .skip-link {
       position: absolute;
@@ -97,8 +133,12 @@
       font-weight: 600;
       font-size: 15px;
       white-space: nowrap;
-      transition: transform 0.15s ease, background 0.15s ease;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
       cursor: pointer;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 134, 11, 0.3);
     }
     .btn-whatsapp {
       background: var(--gold);
@@ -167,7 +207,6 @@
       gap: 40px;
       align-items: center;
     }
-    /* Foto horizontal idêntica ao Figma */
     .about-photo {
       width: 100%;
       max-width: 480px;
